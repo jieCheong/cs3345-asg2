@@ -1,4 +1,6 @@
-public class DoublyLinkedList<T> implements List<T> {
+import java.util.Iterator;
+
+public class DoublyLinkedList<T> implements List<T>, Iterable<T> {
 	private Node head, tail;
 	private int numberOfElements;
 
@@ -129,6 +131,27 @@ public class DoublyLinkedList<T> implements List<T> {
 	
 	}
 	
+	// Iterator
+	@Override
+	public Iterator<T> iterator() {
+		return new DoublyLinkedListIterator();
+	}
+	private class DoublyLinkedListIterator implements Iterator<T> {
+		private Node current = head;
+
+		@Override
+		public boolean hasNext() {
+			return current != null;
+		}
+
+		@Override
+		public T next() {
+			T data = current.data;
+			current = current.next;
+			return data;
+		}
+	}
+
 	/** 
 	 * Inner class representing a node in the linked list
 	 */
@@ -148,6 +171,7 @@ public class DoublyLinkedList<T> implements List<T> {
 			this.previous = prev;
 		}
 	}
+
 
 
 }

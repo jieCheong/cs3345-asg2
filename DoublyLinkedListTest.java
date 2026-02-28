@@ -1,3 +1,4 @@
+import java.util.Iterator;
 
 public class DoublyLinkedListTest {
 
@@ -30,9 +31,13 @@ public class DoublyLinkedListTest {
 	
 	public static void testPrintEmptyListForward() {
 		//TODO
+		List<String> list = new DoublyLinkedList<String>();
+		list.print();
 	}
 	public static void testPrintEmptyListBackward() {
 		//TODO
+		List<String> list = new DoublyLinkedList<String>();
+		list.printBackwards();
 	}
 	
 	public static void testEmptyGet() {
@@ -269,12 +274,16 @@ public class DoublyLinkedListTest {
 		
 		System.out.println("");
 		System.out.println("-------------- testIterator ------------:");
-		List<String> list = new DoublyLinkedList<String>();
+		DoublyLinkedList<String> list = new DoublyLinkedList<String>();
 		list.addLast("Apple");
 		list.addLast("Cherry");
 		list.addLast("Banana");
 
 		//TODO	
+		Iterator<String> it = list.iterator();
+		while (it.hasNext()) {
+			System.out.println(it.next());
+		}
                 // ADD code to obtain iterator object, then uses it to iterate through the list and print its data.
 		
 		System.out.println("-------------- testIterator  ------------:");
